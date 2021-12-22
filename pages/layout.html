@@ -4,23 +4,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <link rel="stylesheet" href="{{ asset_for('menu.css') }}">
+    {{ assets_for('menu') | safe }}
     <title>
       {% block title %}Welcome to the {{ page | title }} page{% endblock %}
     </title>
   </head>
   <body class="">
-    <header class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 backdrop-blur" id="menu">
-      <script type="module" src="{{ asset_for('menu.js') }}"></script>
+    <header class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 backdrop-blur print:hidden" id="menu">
     </header>
 
     <div class="grid p-5">
       <main role="main">
         <div id="app" class="prose max-w-fit"></div>
-        <link rel="stylesheet" href="{{ asset_for(page + '.css') }}">
-        <script type="module" src="{{ asset_for(page + '.js') }}"></script>
+        {{ assets_for(page)|safe }}
       </main>
-      <footer class="pt-5 pb-5 footer">here is the footer</footer>
+      <footer class="pt-5 pb-5 footer print:hidden">here is the footer</footer>
     </div>
   </body>
 </html>

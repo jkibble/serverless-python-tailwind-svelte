@@ -16,24 +16,24 @@ translations = Translations.load(
     'services/index/i18n', ['en'])
 env.install_gettext_translations(translations)
 
-
-def asset_for(path):
+def assets_for(path):
+    imports = ''
     with open('public/manifest.json') as json_file:
         data = json.load(json_file)
     
-    file, ext = path.split('.')
-
     for k, v in data.items():
-        if k.endswith(file):
-            if ext in v:
-                return f'/static/{v[ext][0]}'
-            elif ext == 'js':
-                return f'/static/{v["file"]}'
-    return ''
+        if k.endswith(path) and 'file' in v:
+            imports += f'<script type="module" src="/static/{v["file"]}"></script>'
+        if k.endswith(path) and 'css' in v:
+            for c in v['css']:
+                imports += f'<link rel="stylesheet" href="/static/{c}">'
+    
+    return imports
+
 
 def render(template, **kwargs):
     template = env.get_template(template)
-    template.globals.update({'asset_for': asset_for})
+    template.globals.update({'assets_for': assets_for})
 
     return template.render(kwargs)
 
