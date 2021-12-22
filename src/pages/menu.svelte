@@ -32,7 +32,7 @@
       <div class="dropdown inline-block relative">
         <button
           on:click={() => (shown = !shown)}
-          class="text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center"
+          class="text-grey-700 font-semibold py-2 px-4 rounded inline-flex items-center"
         >
           <span class="mr-1">Language</span>
           <svg
@@ -51,7 +51,7 @@
           </svg>
         </button>
         {#if shown}
-          <ul class="dropdown-menu absolute bg-gray-200/90 backdrop-blur">
+          <ul class="dropdown-menu absolute bg-grey-200/90 backdrop-blur">
             <li>
               <a class="block py-2 px-4 rounded-t" href="/language/en"
                 >English</a
