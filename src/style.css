@@ -1,0 +1,49 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    input[type='text'],
+    input[type='password'],
+    input[type='email'],
+    input[type='number'],
+    input[type='url'],
+    input[type='date'],
+    input[type='datetime-local'],
+    input[type='month'],
+    input[type='week'],
+    input[type='time'],
+    input[type='search'],
+    input[type='tel'],
+    select,
+    select[multiple],
+    textarea {
+        @apply
+        block
+        w-full
+        rounded-md
+        border-gray-300
+        shadow-sm
+        mb-4
+        mt-1
+        focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+    }
+    
+    label {
+        @apply block;
+    }
+
+    input[type='checkbox'],
+    input[type='radio'] {
+        @apply rounded-md
+        border-gray-300
+        shadow-sm
+        focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+    }
+
+}
+
+html {
+    scroll-behavior: smooth;
+}

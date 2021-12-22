@@ -1,0 +1,23 @@
+{
+  "name": "vite-project",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "vite build",
+    "watch": "vite build --watch",
+    "serve": "serverless offline start --httpPort 3000"
+  },
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.32",
+    "vite": "^2.7.5",
+    "@rollup/plugin-virtual": "^2.0.3",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "serverless": "^2.69.1",
+    "serverless-offline": "^8.3.1",
+    "serverless-python-requirements": "^5.2.2",
+    "svelte": "^3.44.3",
+    "tailwindcss": "^3.0.7"
+  }
+}

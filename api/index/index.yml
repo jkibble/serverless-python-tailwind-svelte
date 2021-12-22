@@ -1,0 +1,13 @@
+static:
+  handler: api.index.handler.static
+  events:
+    - httpApi: 
+        path: /static/{path+}
+        method: get
+
+api:
+  handler: api.index.handler.api
+  events:
+    - httpApi:
+        path: /{path+}
+        method: any

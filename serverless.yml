@@ -1,0 +1,17 @@
+service: aws-python-http-api-project
+frameworkVersion: '2 || 3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  lambdaHashingVersion: '20201221'
+
+plugins:
+  - serverless-offline
+  - serverless-python-requirements
+functions:
+  - ${file(./api/index/index.yml)}
+
+custom:
+  serverless-offline:
+    functionCleanupIdleTimeSeconds: 1
