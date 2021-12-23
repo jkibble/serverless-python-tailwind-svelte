@@ -1,8 +1,11 @@
 from jinja2 import Environment, select_autoescape, FileSystemLoader
 from babel.support import Translations
+from urllib.parse import parse_qs
 import json
 import pprint
 import mimetypes
+import jwt
+
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -60,7 +63,26 @@ def api(event, context):
         page = event['pathParameters']['path']
     else:
         page = 'index'
-    return response('layout.html', data={'page':page})
+
+    loggedIn = True
+
+    pp.pprint(parse_qs(event['cookies'][0]))
+
+    if page == 'login' or page == 'forgot':
+        loggedIn = False
+    
+    return response('layout.html', data={'page':page, 'loggedIn': loggedIn, 'flash': ''})
+
+def login(event, context):
+    form = parse_qs(event['body'])
+
+    encoded = jwt.encode({'language': 'en', 'email': form['email'][0], 'flash': 'Login Successful'}, key='start', algorithm='HS256')
+
+    return {
+        'statusCode': 307,
+        'body': '',
+        'headers': {'Set-Cookie': f'token={encoded}; samesite=lax; path=/', 'location': '/'}
+    }
 
 
 def static(event, context):

@@ -4,21 +4,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    {% if loggedIn %}
     {{ assets_for('menu') | safe }}
+    {% endif %}
     <title>
       {% block title %}Welcome to the {{ page | title }} page{% endblock %}
     </title>
   </head>
   <body class="">
-    <header class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 backdrop-blur print:hidden" id="menu">
-    </header>
+    <header class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 backdrop-blur print:hidden" id="menu"></header>
 
-    <div class="grid p-5">
+    <div class="">
       <main role="main">
-        <div id="app" class="prose max-w-fit"></div>
+        <div id="app" class=""></div>
         {{ assets_for(page)|safe }}
       </main>
-      <footer class="pt-5 pb-5 footer print:hidden">here is the footer</footer>
     </div>
+
+    <footer class="pt-5 pb-5 footer print:hidden">here is the footer</footer>
   </body>
 </html>

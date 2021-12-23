@@ -5,6 +5,13 @@ static:
         path: /static/{path+}
         method: get
 
+login:
+  handler: api.index.handler.login
+  events:
+    - httpApi: 
+        path: /login
+        method: post
+
 api:
   handler: api.index.handler.api
   events:

@@ -10,7 +10,7 @@ plugins:
   - serverless-offline
   - serverless-python-requirements
 functions:
-  - ${file(./api/index/index.yml)}
+  - ${file(./api/index/routes.yml)}
 
 custom:
   serverless-offline:
