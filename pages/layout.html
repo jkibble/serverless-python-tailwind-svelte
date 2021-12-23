@@ -7,14 +7,11 @@
     {% if loggedIn %}
     {{ assets_for('menu') | safe }}
     {% endif %}
-    <title>
-      {% block title %}Welcome to the {{ page | title }} page{% endblock %}
-    </title>
   </head>
   <body class="">
     <header class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 backdrop-blur print:hidden" id="menu"></header>
 
-    <div class="">
+    <div class="mt-7 mx-8">
       <main role="main">
         <div id="app" class=""></div>
         {{ assets_for(page)|safe }}

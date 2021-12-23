@@ -2,18 +2,20 @@
 <script>
   // generate nested array of random data
   const data = Array.from({ length: 25 }, () =>
-    Array.from({ length: 5 }, () => Math.random().toString(36).replace(/[^a-z]+/g, ''))
+    Array.from({ length: 10 }, () => Math.random().toString(36).replace(/[^a-z]+/g, ''))
+  );
+
+  const header = Array.from({ length: 10 }, () => 
+    Array.from({ length: 1 }, () => Math.random().toString(36).replace(/[^a-z]+/g, ''))
   );
 </script>
 
-<div class="table">
+<div class="table prose">
   <table>
     <thead>
-      <th>asldj</th>
-      <th>lkj</th>
-      <th>sdfasd</th>
-      <th>klj</th>
-      <th>lkj</th>
+      {#each header as head}
+        <th>{head}</th>
+      {/each}
     </thead>
     <tbody>
       {#each data as row}

@@ -6,7 +6,6 @@ import pprint
 import mimetypes
 import jwt
 
-
 pp = pprint.PrettyPrinter(indent=4)
 
 env = Environment(

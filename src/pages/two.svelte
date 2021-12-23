@@ -1,3 +1,10 @@
+<svelte:head>
+  <title>Here is the two page title from &lt;svelte:head&gt;</title>
+</svelte:head>
+
+<h3>
+  Tailwind CSS Form test page
+</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
   <div class="grid grid-cols-1 gap-6">
       <label>
@@ -123,3 +130,9 @@
     </div>
   </div>
 </div>
+
+<style>
+  h3 {
+    @apply mt-5 font-bold;
+  }
+</style>

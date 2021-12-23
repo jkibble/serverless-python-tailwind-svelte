@@ -1,15 +1,22 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
+
   const id = Math.random()
     .toString(36)
     .replace(/[^a-z]+/g, "");
 
+  let editor;
+
   onMount(() => {
     let script = document.querySelector("#hljs");
     script.addEventListener("load", function () {
-      new Quill(`#${id}`, { theme: 'snow' });
+      editor = new Quill(`#${id}`, { theme: 'snow' });
     });
   });
+
+  onDestroy(() => {
+    document.querySelector('.ql-toolbar').remove()
+  })
 </script>
 
 <svelte:head>
