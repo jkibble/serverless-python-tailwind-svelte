@@ -22,6 +22,9 @@
 <svelte:head>
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <script id="hljs" src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <title>
+    Title set from &lt;svelte:head&gt;
+  </title>
 </svelte:head>
 
 <div {id} />

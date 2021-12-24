@@ -14,19 +14,27 @@
   let selected = options[0];
 </script>
 
-<h3 class="font-bold mb-5">
-  Component selector
-</h3>
+<div class="w-1/3">
+  <h3 class="font-bold mb-5">
+    Component selector
+  </h3>
+  
+  <select bind:value={selected}>
+    {#each options as option}
+    <option value={option}>{option.name}</option>
+    {/each}
+  </select>
+  
+  <h3>{selected.name}</h3>
+  
+  <svelte:component this={selected.component}/>
+</div>
 
-<select bind:value={selected}>
-  {#each options as option}
-  <option value={option}>{option.name}</option>
-  {/each}
-</select>
-
-<h3>{selected.name}</h3>
-
-<svelte:component this={selected.component}/>
+<svelte:head>
+  <title>
+    {selected.name}
+  </title>
+</svelte:head>
 
 <style>
   h3 {
