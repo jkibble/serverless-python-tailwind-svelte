@@ -1,19 +1,19 @@
 static:
-  handler: api.index.handler.static
+  handler: services.index.handler.static
   events:
     - httpApi: 
         path: /static/{path+}
         method: get
 
 login:
-  handler: api.index.handler.login
+  handler: services.index.handler.login
   events:
     - httpApi: 
         path: /login
         method: post
 
 api:
-  handler: api.index.handler.api
+  handler: services.index.handler.api
   events:
     - httpApi:
         path: /{path+}

@@ -14,7 +14,7 @@
   let selected = options[0];
 </script>
 
-<div class="w-1/3">
+<div class="w-1/2">
   <h3 class="font-bold mb-5">
     Component selector
   </h3>

@@ -7,9 +7,8 @@
     "serve": "serverless offline start --httpPort 3000"
   },
   "dependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.32",
-    "vite": "^2.7.5",
     "@rollup/plugin-virtual": "^2.0.3",
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.32",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.0",
@@ -18,6 +17,8 @@
     "serverless-offline": "^8.3.1",
     "serverless-python-requirements": "^5.2.2",
     "svelte": "^3.44.3",
-    "tailwindcss": "^3.0.7"
+    "svelte-i18n": "^3.3.13",
+    "tailwindcss": "^3.0.7",
+    "vite": "^2.7.5"
   }
 }

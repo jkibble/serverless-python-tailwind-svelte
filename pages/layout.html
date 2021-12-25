@@ -7,16 +7,20 @@
     {% if loggedIn %}
     {{ assets_for('menu') | safe }}
     {% endif %}
-  </head>
-  <body class="">
-    <header class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 backdrop-blur print:hidden" id="menu"></header>
 
-    <div class="mt-7 mx-8">
-      <main role="main">
-        <div id="app" class=""></div>
-        {{ assets_for(page)|safe }}
-      </main>
-    </div>
+    <script>
+      window.user = {
+        first: 'Jason',
+        email: 'foo@bar.com'
+      };
+    </script>
+  </head>
+  <body>
+    <header role="navigation" class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 backdrop-blur print:hidden" id="menu"></header>
+
+    <main id="app" class="mt-7 mx-8" role="main"> 
+      {{ assets_for(page)|safe }}
+    </main>
 
     <footer class="pt-5 pb-5 footer print:hidden">here is the footer</footer>
   </body>

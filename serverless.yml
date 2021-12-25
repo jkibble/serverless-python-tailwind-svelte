@@ -1,4 +1,4 @@
-service: aws-python-http-api-project
+service: svelte-project
 frameworkVersion: '2 || 3'
 
 provider:
@@ -10,7 +10,7 @@ plugins:
   - serverless-offline
   - serverless-python-requirements
 functions:
-  - ${file(./api/index/routes.yml)}
+  - ${file(./services/index/routes.yml)}
 
 custom:
   serverless-offline:
