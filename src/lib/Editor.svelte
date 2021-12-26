@@ -6,16 +6,18 @@
     .replace(/[^a-z]+/g, "");
 
   let editor;
+  let toolbar;
 
   onMount(() => {
     let script = document.querySelector("#hljs");
     script.addEventListener("load", function () {
       editor = new Quill(`#${id}`, { theme: 'snow' });
+      toolbar = editor.container.previousElementSibling;
     });
   });
 
   onDestroy(() => {
-    document.querySelector('.ql-toolbar').remove()
+    toolbar.remove(); // toolbar is created outside editor div and must be destroyed manually when unloading editor
   })
 </script>
 
