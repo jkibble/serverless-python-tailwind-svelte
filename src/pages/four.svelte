@@ -3,7 +3,8 @@
   import Editor from '/src/lib/Editor.svelte'
   import Table from '/src/lib/Table.svelte'
   import Timer from '/src/lib/Timer.svelte'
-	
+  import { _ } from '/src/lib/i18n.js'
+
   const options = [
 		{ name: 'Counter',   component: Counter },
 		{ name: 'Editor',   component: Editor },

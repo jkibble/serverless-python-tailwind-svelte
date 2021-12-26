@@ -33,6 +33,10 @@ def assets_for(path):
     return imports
 
 
+def language(event, context):
+    return response({ 'title': 'title loaded from server', 'subtitle': 'subtitle loaded from server' })
+
+
 def render(template, **kwargs):
     template = env.get_template(template)
     template.globals.update({'assets_for': assets_for})
@@ -40,14 +44,14 @@ def render(template, **kwargs):
     return template.render(kwargs)
 
 
-def response(content, statusCode=200, contentType='text/html', data={}):
-    if isinstance(content, str):
-        if content.endswith('.html'):
-            body = render(content, **data)
+def response(body, statusCode=200, contentType='text/html', data={}):
+    if isinstance(body, str):
+        if body.endswith('.html'):
+            body = render(body, **data)
         else:
-            body = content
-    elif isinstance(content, dict):
-        body = json.dumps(content)
+            body = body
+    elif isinstance(body, dict):
+        body = json.dumps(body)
         contentType = 'application/json'
 
     return {
@@ -65,12 +69,22 @@ def api(event, context):
 
     loggedIn = True
 
-    pp.pprint(parse_qs(event['cookies'][0]))
+    # pp.pprint(parse_qs(event['cookies'][0]))
 
     if page == 'login' or page == 'forgot':
         loggedIn = False
+
+    lang = {
+        'en': {
+            'title': 'here is the title in english',
+            'subtitle': 'here is the subtitle in english'
+        },
+        'es': {
+            'title': 'here is the title in spanish'
+        }
+    }
     
-    return response('layout.html', data={'page':page, 'loggedIn': loggedIn, 'flash': ''})
+    return response('layout.html', data={'page':page, 'loggedIn': loggedIn, 'flash': '', 'language': 'es', 'lang': lang})
 
 def login(event, context):
     form = parse_qs(event['body'])

@@ -5,6 +5,13 @@ static:
         path: /static/{path+}
         method: get
 
+language:
+  handler: services.index.handler.language
+  events:
+    - httpApi: 
+        path: /language/{page}/{lang}.json
+        method: get
+
 login:
   handler: services.index.handler.login
   events:

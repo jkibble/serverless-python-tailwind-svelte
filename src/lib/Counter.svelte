@@ -1,8 +1,9 @@
 <script>
   import { _, dictionary } from 'svelte-i18n'
   dictionary.set({
-    en: { title: 'Just a button that counts up when you click it' },
-    fr: { title: 'Juste un bouton qui compte lorsque vous cliquez dessus' }
+    en: { description: 'Just a button that counts up when you click it' },
+    fr: { description: 'Juste un bouton qui compte lorsque vous cliquez dessus' },
+    es: { description: 'Solo un botón que cuenta cuando lo haces clic' },
   });
 
   let count = 0
@@ -12,7 +13,7 @@
 </script>
 
 <h3>
-  { $_('title') }
+  { $_('description') }
 </h3>
 
 <button class="btn" on:click={increment}>
