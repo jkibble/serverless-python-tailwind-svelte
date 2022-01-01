@@ -18,23 +18,24 @@ translations = Translations.load(
     'services/index/i18n', ['en'])
 env.install_gettext_translations(translations)
 
+
 def assets_for(path):
     imports = ''
     with open('public/manifest.json') as json_file:
         data = json.load(json_file)
-    
+
     for k, v in data.items():
         if k.endswith(path) and 'file' in v:
             imports += f'<script type="module" src="/static/{v["file"]}"></script>'
         if k.endswith(path) and 'css' in v:
             for c in v['css']:
                 imports += f'<link rel="stylesheet" href="/static/{c}">'
-    
+
     return imports
 
 
 def language(event, context):
-    return response({ 'title': 'title loaded from server', 'subtitle': 'subtitle loaded from server' })
+    return response({'title': 'title loaded from server', 'subtitle': 'subtitle loaded from server'})
 
 
 def render(template, **kwargs):
@@ -83,13 +84,15 @@ def api(event, context):
             'title': 'here is the title in spanish'
         }
     }
-    
-    return response('layout.html', data={'page':page, 'loggedIn': loggedIn, 'flash': '', 'language': 'es', 'lang': lang})
+
+    return response('layout.html', data={'page': page, 'loggedIn': loggedIn, 'flash': '', 'language': 'es', 'lang': lang})
+
 
 def login(event, context):
     form = parse_qs(event['body'])
 
-    encoded = jwt.encode({'language': 'en', 'email': form['email'][0], 'flash': 'Login Successful'}, key='start', algorithm='HS256')
+    encoded = jwt.encode(
+        {'language': 'en', 'email': form['email'][0], 'flash': 'Login Successful'}, key='start', algorithm='HS256')
 
     return {
         'statusCode': 307,
