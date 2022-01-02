@@ -8,6 +8,6 @@
 <input type="text" autocomplete="false" list={id} />
 <datalist {id}>
   {#each options as item}
-    <option value={item.value}>{item.value}</option>
+    <option value={item.value} />
   {/each}
 </datalist>

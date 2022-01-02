@@ -25,11 +25,11 @@ def assets_for(path):
         data = json.load(json_file)
 
     for k, v in data.items():
-        if k.endswith(path) and 'file' in v:
-            imports += f'<script type="module" src="/static/{v["file"]}"></script>'
         if k.endswith(path) and 'css' in v:
             for c in v['css']:
                 imports += f'<link rel="stylesheet" href="/static/{c}">'
+        if k.endswith(path) and 'file' in v:
+            imports += f'<script type="module" src="/static/{v["file"]}"></script>'
 
     return imports
 

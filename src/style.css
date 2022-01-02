@@ -4,55 +4,56 @@
 @tailwind utilities;
 
 @layer base {
-    input[type='text'],
-    input[type='password'],
-    input[type='email'],
-    input[type='number'],
-    input[type='url'],
-    input[type='date'],
-    input[type='datetime-local'],
-    input[type='month'],
-    input[type='week'],
-    input[type='time'],
-    input[type='search'],
-    input[type='tel'],
-    select,
-    select[multiple],
-    textarea {
-        @apply
-        block
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="url"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"],
+  input[type="time"],
+  input[type="search"],
+  input[type="tel"],
+  select,
+  select[multiple],
+  textarea {
+    @apply block
         w-full
         rounded-md
         border-gray-300
         shadow-sm
-        mb-4
+        mb-1
         mt-1
+        h-10 text-base
         focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
-    }
-    
-    label {
-        @apply block;
-    }
+  }
 
-    input[type='checkbox'],
-    input[type='radio'] {
-        @apply rounded-md
+  label {
+    @apply block;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    @apply rounded-md
+        block
         border-gray-300
         shadow-sm
         focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
-    }
-
+  }
+  /* w-full h-10 px-3 text-base placeholder-gray-600 border border-red-700 rounded-lg focus:shadow-outline */
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .btn {
-    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
 }
 
 .required:after {
-    content:" *";
-    color: red;
+  content: " *";
+  color: red;
 }
