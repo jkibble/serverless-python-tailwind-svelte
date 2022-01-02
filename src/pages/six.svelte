@@ -38,7 +38,7 @@
     <Password label="Password" name="password" required="true" />
     <Search label="Search (not required)" name="search" />
     <Date label="Date" name="date" required="true" />
-    <Datalist {options} required="true" />
+    <Datalist {options} label="Datalist" required="true" />
     <input type="submit" class="btn" value="send" />
   </form>
 </div>

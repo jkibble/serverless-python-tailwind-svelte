@@ -1,5 +1,5 @@
 <script>
-  const id = Math.random()
+  export const id = Math.random()
     .toString(36)
     .replace(/[^a-z]+/g, "");
   let element;

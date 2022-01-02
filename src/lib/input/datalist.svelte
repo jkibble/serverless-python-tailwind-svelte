@@ -1,18 +1,17 @@
 <script>
+  import Text from "/src/lib/input/text.svelte";
   export let options = [];
-  const id = Math.random()
-    .toString(36)
-    .replace(/[^a-z]+/g, "");
-
-  export let required = false;
-  export let label = "";
+  let id;
 </script>
 
-<label for={id} class:required>
-  {label}
-</label>
-<input type="text" autocomplete="false" list={id} {required} {...$$restProps} />
-<datalist {id}>
+<Text
+  inputType="text"
+  autocomplete="false"
+  bind:id
+  list={id + "_datalist"}
+  {...$$restProps}
+/>
+<datalist id={id + "_datalist"}>
   {#each options as item}
     <option value={item.value} />
   {/each}
