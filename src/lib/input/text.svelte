@@ -11,19 +11,17 @@
   export let required = false;
 </script>
 
-<div class="relative">
-  <label for={id} class:required>
-    {label}
-  </label>
-  <input
-    on:blur={() => (isValid = element.checkValidity())}
-    bind:this={element}
-    {id}
-    type={inputType}
-    {required}
-    {...$$restProps}
-  />
-  {#if !isValid}
-    <span class="text-xs text-red-700">{error}</span>
-  {/if}
-</div>
+<label for={id} class:required>
+  {label}
+</label>
+<input
+  on:blur={() => (isValid = element.checkValidity())}
+  bind:this={element}
+  {id}
+  type={inputType}
+  {required}
+  {...$$restProps}
+/>
+{#if !isValid}
+  <span class="text-xs text-red-700">{error}</span>
+{/if}
