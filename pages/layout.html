@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta id="language" data-language="{{ language }}" />
     <meta id="page" data-page="{{ page }}" />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    {% if loggedIn %}
-    {{ assets_for('menu') | safe }}
-    {% endif %}
-
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    {% if loggedIn %} {{ assets_for('menu') | safe }} {% endif %}
     <script>
       window.lang = {{ lang | safe}};
 
@@ -19,10 +16,26 @@
       };
     </script>
   </head>
-  <body>
-    <header role="navigation" class="max-w-screen mx-auto sticky top-0 z-50 bg-gray-200/60 backdrop-blur print:hidden" id="menu"></header>
+  <body class="dark:bg-gray-500">
+    <header
+      role="navigation"
+      class="
+        max-w-screen
+        mx-auto
+        sticky
+        top-0
+        z-50
+        bg-gray-200/60
+        dark:bg-gray-700/60
+        text-black
+        dark:text-white
+        backdrop-blur
+        print:hidden
+      "
+      id="menu"
+    ></header>
 
-    <main id="app" class="mt-7 mx-8" role="main"> 
+    <main id="app" class="mt-7 mx-8" role="main">
       {{ assets_for(page)|safe }}
     </main>
 

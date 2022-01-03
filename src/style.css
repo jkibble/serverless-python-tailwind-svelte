@@ -19,30 +19,13 @@
   select,
   select[multiple],
   textarea {
-    @apply block
-        w-full
-        rounded-md
-        border-gray-300
-        shadow-sm
-        mb-1
-        mt-1
-        h-10 text-base
-        focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
-  }
-
-  label {
-    @apply block;
+    @apply block w-full rounded-md shadow-sm text-base h-10 pl-2 pr-2 mb-3 border border-indigo-400;
   }
 
   input[type="checkbox"],
   input[type="radio"] {
-    @apply rounded-md
-        block
-        border-gray-300
-        shadow-sm
-        focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+    @apply block rounded-md shadow-sm;
   }
-  /* w-full h-10 px-3 text-base placeholder-gray-600 border border-red-700 rounded-lg focus:shadow-outline */
 }
 
 html {

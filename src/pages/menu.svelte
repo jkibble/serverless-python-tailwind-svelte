@@ -1,10 +1,19 @@
 <script>
-  let shown = false;
   import "/src/style.css";
+  import Switch from "/src/lib/input/switch.svelte";
+
+  let shown = false;
+  let isDarkMode = false;
+
+  $: if (isDarkMode) {
+    document.querySelector("html").classList.add("dark");
+  } else {
+    document.querySelector("html").classList.remove("dark");
+  }
 </script>
 
 <nav>
-  <div class="flex justify-between items-center p-1">
+  <div class="flex justify-between items-center p-1 bg-inherit">
     <!-- logo -->
     <div class="flex items-center">
       <a href="/" class="mr-3">
@@ -29,48 +38,44 @@
       </div>
     </div>
     <!-- secondary nav -->
-    <div>secondary nav</div>
-    <!-- language selector -->
     <div>
-      <div class="dropdown inline-block relative">
-        <button
-          on:click={() => (shown = !shown)}
-          class="text-grey-700 font-semibold py-2 px-4 rounded inline-flex items-center"
+      <Switch label="Dark Mode" bind:toggle={isDarkMode} />
+    </div>
+    <!-- language selector -->
+    <div class="dropdown inline-block relative bg-inherit">
+      <button
+        on:click={() => (shown = !shown)}
+        class="text-grey-700 font-semibold py-2 px-4 rounded inline-flex items-center"
+      >
+        <span class="mr-1">Language</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <span class="mr-1">Language</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </button>
-        {#if shown}
-          <ul class="dropdown-menu absolute bg-grey-200/90 backdrop-blur">
-            <li>
-              <a class="block py-2 px-4 rounded-t" href="/language/en"
-                >English</a
-              >
-            </li>
-            <li>
-              <a class="block py-2 px-4" href="/language/fr">French</a>
-            </li>
-            <li>
-              <a class="block py-2 px-4 rounded-b" href="/language/es"
-                >Spanish</a
-              >
-            </li>
-          </ul>
-        {/if}
-      </div>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+      {#if shown}
+        <ul class="dropdown-menu absolute bg-inherit">
+          <li>
+            <a class="block py-2 px-4 rounded-t" href="/language/en">English</a>
+          </li>
+          <li>
+            <a class="block py-2 px-4" href="/language/fr">French</a>
+          </li>
+          <li>
+            <a class="block py-2 px-4 rounded-b" href="/language/es">Spanish</a>
+          </li>
+        </ul>
+      {/if}
     </div>
   </div>
   <!-- mobile menu -->
