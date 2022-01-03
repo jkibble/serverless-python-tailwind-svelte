@@ -26,7 +26,7 @@
   <div class="text-xs flex gap-2 align-bottom">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-5 w-5 text-red-700"
+      class="h-5 w-5 text-red-700 border dark:border-slate-100 rounded-full"
       viewBox="0 0 20 20"
       fill="currentColor"
     >

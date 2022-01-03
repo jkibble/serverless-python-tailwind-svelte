@@ -19,13 +19,21 @@
   select,
   select[multiple],
   textarea {
-    @apply block w-full rounded-md shadow-sm text-base h-10 pl-2 pr-2 mb-3 border border-indigo-400;
+    @apply block w-full rounded-md shadow-sm text-base h-10 pl-2 pr-2 mb-3 border border-indigo-400 bg-white dark:bg-slate-700;
   }
 
   input[type="checkbox"],
   input[type="radio"] {
     @apply block rounded-md shadow-sm;
   }
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options,
+.ql-picker-label {
+  @apply text-slate-800 bg-slate-100 dark:bg-slate-800 dark:text-slate-100;
+}
+.ql-snow .ql-stroke {
+  @apply stroke-slate-800 dark:stroke-slate-100 !important;
 }
 
 html {
