@@ -5,6 +5,7 @@ import json
 import pprint
 import mimetypes
 import jwt
+from faker import Faker
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -34,6 +35,12 @@ def assets_for(path):
     return imports
 
 
+def post(event, context):
+    pp.pprint(parse_qs(event['body']))
+
+    return response('layout.html')
+
+
 def language(event, context):
     return response({'title': 'title loaded from server', 'subtitle': 'subtitle loaded from server'})
 
@@ -51,7 +58,7 @@ def response(body, statusCode=200, contentType='text/html', data={}):
             body = render(body, **data)
         else:
             body = body
-    elif isinstance(body, dict):
+    elif isinstance(body, dict) or isinstance(body, list):
         body = json.dumps(body)
         contentType = 'application/json'
 
@@ -69,8 +76,6 @@ def api(event, context):
         page = 'index'
 
     loggedIn = True
-
-    # pp.pprint(parse_qs(event['cookies'][0]))
 
     if page == 'login' or page == 'forgot':
         loggedIn = False
@@ -99,6 +104,19 @@ def login(event, context):
         'body': '',
         'headers': {'Set-Cookie': f'token={encoded}; samesite=lax; path=/', 'location': '/'}
     }
+
+
+def table(event, context):
+    fake = Faker()
+    result = {'header': [], 'body': []}
+
+    for i in range(0, 8):
+        result['header'].append(fake.company())
+        result['body'].append([])
+        for x in range(0, 8):
+            result['body'][i].append(fake.name())
+
+    return response(result)
 
 
 def static(event, context):

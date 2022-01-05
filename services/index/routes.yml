@@ -1,23 +1,37 @@
 static:
   handler: services.index.handler.static
   events:
-    - httpApi: 
+    - httpApi:
         path: /static/{path+}
         method: get
 
 language:
   handler: services.index.handler.language
   events:
-    - httpApi: 
+    - httpApi:
         path: /language/{page}/{lang}.json
         method: get
+
+post:
+  handler: services.index.handler.post
+  events:
+    - httpApi:
+        path: /post
+        method: post
 
 login:
   handler: services.index.handler.login
   events:
-    - httpApi: 
+    - httpApi:
         path: /login
         method: post
+
+table:
+  handler: services.index.handler.table
+  events:
+    - httpApi:
+        path: /table
+        method: get
 
 api:
   handler: services.index.handler.api
