@@ -28,10 +28,11 @@
 
 <div class="grid gap-3 xl:grid-cols-2 sm:grid-cols-1">
   <form
-    action="/"
+    action="/post"
     method="POST"
+    novalidate="true"
     bind:this={form}
-    on:submit={() => form.reportValidity()}
+    on:submit={() => form.checkValitity()}
   >
     <Email label="Email" name="email" required="true" />
     <Checkbox label="Checkbox" name="checkbox" />

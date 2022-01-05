@@ -5,7 +5,13 @@
   let shown = false;
   let isDarkMode = false;
 
-  $: if (isDarkMode) {
+  const isDarkSet = localStorage.theme === "dark";
+  const isThemeStored = "theme" in localStorage;
+  const isDarkPrefered = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  $: if (isDarkMode || (!isThemeStored && isDarkPrefered)) {
     document.querySelector("html").classList.add("dark");
   } else {
     document.querySelector("html").classList.remove("dark");
