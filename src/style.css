@@ -32,12 +32,17 @@
 .ql-picker-label {
   @apply text-slate-800 bg-slate-100 dark:bg-slate-800 dark:text-slate-100;
 }
+
 .ql-snow .ql-stroke {
   @apply stroke-slate-800 dark:stroke-slate-100 !important;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: Sana Sans, Arial, sans-serif;
 }
 
 .btn {
